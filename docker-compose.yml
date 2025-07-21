@@ -1,0 +1,18 @@
+services:
+  backendproject:
+    build: ./backendproject
+    volumes:
+      - ./backendproject:/app
+    ports:
+      - "8000:8000"
+    working_dir: /app
+    command: python manage.py runserver 0.0.0.0:8000
+
+  frontendapp:
+    build: ./frontendapp
+    volumes:
+      - ./frontendapp:/app
+    ports:
+      - "3000:3000"
+    working_dir: /app
+    command: npm start
